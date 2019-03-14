@@ -52,17 +52,17 @@ bot.dialog('FetchCoffeeRecipe', [
         // Async search
         Recipes
             .searchBrewMethods(brewMethod)
-            .then(function (methods) {
-                session.send('I found %d brew methods:', methods.length);
+            .then(function (method) {
+                session.send('I found your brew method! %s', method.name);
 
                 var message = new builder.Message()
                     .attachmentLayout(builder.AttachmentLayout.carousel)
-                    .attachments(methods.map(methodAsAttachment));
+                    .attachments(methodAsAttachment(method));
 
                 session.send(message);
 
                 // End
-                session.endDialog();
+                session.endDialog();s
             });
     }
 ]).triggerAction({
@@ -99,7 +99,6 @@ if (process.env.IS_SPELL_CORRECTION_ENABLED === 'true') {
 
 // Helpers
 function methodAsAttachment(brewMethod) {
-    console.log(brewMethod);
     return new builder.HeroCard()
         .title(brewMethod.name)
         .subtitle('%d beans. %d minutes.', brewMethod.difficulty, brewMethod.totalTime)
