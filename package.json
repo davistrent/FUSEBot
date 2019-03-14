@@ -1,0 +1,27 @@
+{
+  "name": "FUSEBot",
+  "version": "1.0.0",
+  "description": "v3 Node SDK with LUIS bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davistrent/FUSEBot.git"
+  },
+  "dependencies": {
+    "bluebird": "^3.4.7",
+    "botbuilder": "^3.13.1",
+    "dotenv-extended": "^1.0.4",
+    "request": "^2.79.0",
+    "restify": "^4.3.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/davistrent/FUSEBot/issues"
+  },
+  "homepage": "https://github.com/davistrent/FUSEBot#readme"
+}
