@@ -57,7 +57,7 @@ bot.dialog('FetchCoffeeRecipe', [
 
                 const message = new builder.Message(session)
                     .attachmentLayout(builder.AttachmentLayout.carousel)
-                    .attachments(methodAsAttachment(method));
+                    .attachments([methodAsAttachment(method)]);
 
                 session.send(message);
 
