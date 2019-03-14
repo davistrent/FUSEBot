@@ -23,10 +23,10 @@ module.exports = {
                 }
             ];
 
-            const brewMethod = brewMethods.find(method => method.name === brewMethod);
+            const brewMethodResult = brewMethods.find(method => method.name === brewMethod);
 
             // simulate async response
-            setTimeout(function () { resolve(brewMethod); }, 1000);
+            setTimeout(function () { resolve(brewMethodResult); }, 1000);
         });
     },
 };
