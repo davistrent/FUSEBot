@@ -23,7 +23,7 @@ module.exports = {
                 }
             ];
 
-            const brewMethodResult = brewMethods.find(method => method.name === brewMethod);
+            const brewMethodResult = brewMethods.find(method => method.name.toUpperCase() === brewMethod.toUpperCase());
 
             // simulate async response
             setTimeout(function () { resolve(brewMethodResult); }, 1000);
