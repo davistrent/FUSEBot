@@ -99,13 +99,14 @@ if (process.env.IS_SPELL_CORRECTION_ENABLED === 'true') {
 
 // Helpers
 function methodAsAttachment(brewMethod) {
-    return new builder.HeroCard().title(brewMethod.name);
-        // .subtitle('%d beans. %d minutes.', brewMethod.difficulty, brewMethod.totalTime)
-        // .images([new builder.CardImage().url(brewMethod.image)])
-        // .buttons([
-        //     new builder.CardAction()
-        //         .title('More details')
-        //         .type('openUrl')
-        //         .value('https://www.bing.com/search?q=' + encodeURIComponent(brewMethod.name))
-        // ]);
+    return new builder.HeroCard()
+        .title(brewMethod.name)
+        .subtitle('%d beans. %d minutes.', brewMethod.difficulty, brewMethod.totalTime)
+        .images([new builder.CardImage().url(brewMethod.image)])
+        .buttons([
+            new builder.CardAction()
+                .title('More details')
+                .type('openUrl')
+                .value('https://www.bing.com/search?q=' + encodeURIComponent(brewMethod.name))
+        ]);
 }
