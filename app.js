@@ -43,9 +43,9 @@ bot.dialog('FetchCoffeeRecipe', [
         }
     },
     function (session, results) {
-        var brewMethod = results.response;
+        const brewMethod = results.response;
 
-        var message = 'Looking for the %s brew method';
+        const message = 'Looking for the %s brew method';
 
         session.send(message, brewMethod);
 
