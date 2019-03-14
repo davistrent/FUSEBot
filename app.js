@@ -21,7 +21,7 @@ server.post('/api/messages', connector.listen());
 var inMemoryStorage = new builder.MemoryBotStorage();
 
 var bot = new builder.UniversalBot(connector, function (session) {
-    session.send('Sorry, I did not understand \'%s\'. Type \'help\' if you need assistance.', session.message.text);
+    session.send('Oh beans...I did not understand \'%s\'. Type \'help\' if you need assistance.', session.message.text);
 }).set('storage', inMemoryStorage); // Register in memory storage
 
 var recognizer = new builder.LuisRecognizer(process.env.LUIS_MODEL_URL);
