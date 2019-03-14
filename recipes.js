@@ -18,7 +18,7 @@ module.exports = {
                 {
                     name: 'Espresso',
                     difficulty: '5',
-                    totalTime: '.5',
+                    totalTime: '2',
                     image: 'https://placeholdit.imgix.net/~text?txtsize=35&txt=Espresso&w=500&h=260',
                 }
             ];
