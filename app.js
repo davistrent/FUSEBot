@@ -1,30 +1,29 @@
-// This loads the environment variables from the .env file
 require('dotenv-extended').load();
 
-var builder = require('botbuilder');
-var restify = require('restify');
-var Recipes = require('./recipes');
-var spellService = require('./spell-service');
+const builder = require('botbuilder');
+const restify = require('restify');
+const Recipes = require('./recipes');
+const spellService = require('./spell-service');
 
 // Setup Restify Server
-var server = restify.createServer();
+const server = restify.createServer();
 server.listen(process.env.port || process.env.PORT || 3978, function () {
     console.log('%s listening to %s', server.name, server.url);
 });
 // Create connector and listen for messages
-var connector = new builder.ChatConnector({
+const connector = new builder.ChatConnector({
     appId: process.env.MICROSOFT_APP_ID,
     appPassword: process.env.MICROSOFT_APP_PASSWORD
 });
 server.post('/api/messages', connector.listen());
 
-var inMemoryStorage = new builder.MemoryBotStorage();
+const inMemoryStorage = new builder.MemoryBotStorage();
 
-var bot = new builder.UniversalBot(connector, function (session) {
+const bot = new builder.UniversalBot(connector, function (session) {
     session.send('Oh beans...I did not understand \'%s\'. Type \'help\' if you need assistance.', session.message.text);
 }).set('storage', inMemoryStorage); // Register in memory storage
 
-var recognizer = new builder.LuisRecognizer(process.env.LUIS_MODEL_URL);
+const recognizer = new builder.LuisRecognizer(process.env.LUIS_MODEL_URL);
 bot.recognizer(recognizer);
 
 bot.dialog('FetchCoffeeRecipe', [
@@ -102,6 +101,7 @@ function methodAsAttachment(brewMethod) {
     return new builder.HeroCard()
         .title(brewMethod.name)
         .subtitle('Difficulty: %d beans. Total time: %d minutes.', brewMethod.difficulty, brewMethod.totalTime)
+        .text(brewMethod.recipe)
         .images([new builder.CardImage().url(brewMethod.image)])
         .buttons([
             new builder.CardAction()

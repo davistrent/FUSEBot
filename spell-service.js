@@ -1,13 +1,13 @@
-var request = require('request');
+const request = require('request');
 
-var SPELL_CHECK_API_URL = process.env.BING_SPELL_CHECK_API_ENDPOINT;
-    SPELL_CHECK_API_KEY = process.env.BING_SPELL_CHECK_API_KEY;
+const SPELL_CHECK_API_URL = process.env.BING_SPELL_CHECK_API_ENDPOINT;
+const SPELL_CHECK_API_KEY = process.env.BING_SPELL_CHECK_API_KEY;
 
 exports.getCorrectedText = function (text) {
     return new Promise(
         function (resolve, reject) {
             if (text) {
-                var requestData = {
+                const requestData = {
                     url: SPELL_CHECK_API_URL,
                     headers: {
                         "Ocp-Apim-Subscription-Key": SPELL_CHECK_API_KEY
@@ -26,11 +26,11 @@ exports.getCorrectedText = function (text) {
                         reject(body);
                     }
                     else {
-                        var previousOffset = 0;
-                        var result = '';
+                        let previousOffset = 0;
+                        let result = '';
 
-                        for (var i = 0; i < body.flaggedTokens.length; i++) {
-                            var element = body.flaggedTokens[i];
+                        for (let i = 0; i < body.flaggedTokens.length; i++) {
+                            let element = body.flaggedTokens[i];
 
                             // Append the text from the previous offset to the current misspelled word offset
                             result += text.substring(previousOffset, element.offset);
