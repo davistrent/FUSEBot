@@ -55,7 +55,7 @@ bot.dialog('FetchCoffeeRecipe', [
             .then(function (method) {
                 session.send('I found your brew method! %s', method.name);
 
-                const message = new builder.Message()
+                const message = new builder.Message(session)
                     .attachmentLayout(builder.AttachmentLayout.carousel)
                     .attachments(methodAsAttachment(method));
 
