@@ -32,7 +32,7 @@ bot.dialog('FetchCoffeeRecipe', [
         session.send('Welcome to the Coffee Bot! 1 sec as we percolate on your message: \'%s\'', session.message.text);
 
         // try extracting entities
-        var brewMethodEntity = builder.EntityRecognizer.findEntity(args.intent.entities, 'BrewMethod');
+        const brewMethodEntity = builder.EntityRecognizer.findEntity(args.intent.entities, 'BrewMethod');
         if (brewMethodEntity) {
             // brew method entity detected, continue to next step
             session.dialogData.searchType = 'brewMethod';
@@ -99,6 +99,7 @@ if (process.env.IS_SPELL_CORRECTION_ENABLED === 'true') {
 
 // Helpers
 function methodAsAttachment(brewMethod) {
+    console.log(brewMethod);
     return new builder.HeroCard()
         .title(brewMethod.name)
         .subtitle('%d beans. %d minutes.', brewMethod.difficulty, brewMethod.totalTime)

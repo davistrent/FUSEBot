@@ -3,7 +3,6 @@ var Promise = require('bluebird');
 module.exports = {
     searchBrewMethods: function (brewMethod) {
         return new Promise(function (resolve) {
-
             const brewMethods = [{
                     name: 'Pour Over',
                     difficulty: '3',
