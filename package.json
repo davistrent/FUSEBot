@@ -1,5 +1,5 @@
 {
-  "name": "FUSEBot",
+  "name": "fuse-bot",
   "version": "1.0.0",
   "description": "v3 Node SDK with LUIS bot",
   "main": "index.js",

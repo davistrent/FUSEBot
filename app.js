@@ -77,6 +77,12 @@ bot.dialog('Help', function (session) {
     matches: 'Help'
 });
 
+bot.dialog('Greeting', function (session) {
+    session.endDialog('Hi! Coffee bot here, how are you? What would you like to brew?!');
+}).triggerAction({
+    matches: 'Greeting'
+});
+
 // Spell Check
 if (process.env.IS_SPELL_CORRECTION_ENABLED === 'true') {
     bot.use({
