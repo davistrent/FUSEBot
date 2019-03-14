@@ -55,7 +55,7 @@ bot.dialog('FetchCoffeeRecipe', [
             .then(function (method) {
                 session.send('I found your brew method! %s', method.name);
 
-                var message = new builder.Message()
+                const message = new builder.Message()
                     .attachmentLayout(builder.AttachmentLayout.carousel)
                     .attachments(methodAsAttachment(method));
 
@@ -99,14 +99,13 @@ if (process.env.IS_SPELL_CORRECTION_ENABLED === 'true') {
 
 // Helpers
 function methodAsAttachment(brewMethod) {
-    return new builder.HeroCard()
-        .title(brewMethod.name)
-        .subtitle('%d beans. %d minutes.', brewMethod.difficulty, brewMethod.totalTime)
-        .images([new builder.CardImage().url(brewMethod.image)])
-        .buttons([
-            new builder.CardAction()
-                .title('More details')
-                .type('openUrl')
-                .value('https://www.bing.com/search?q=' + encodeURIComponent(brewMethod.name))
-        ]);
+    return new builder.HeroCard().title(brewMethod.name);
+        // .subtitle('%d beans. %d minutes.', brewMethod.difficulty, brewMethod.totalTime)
+        // .images([new builder.CardImage().url(brewMethod.image)])
+        // .buttons([
+        //     new builder.CardAction()
+        //         .title('More details')
+        //         .type('openUrl')
+        //         .value('https://www.bing.com/search?q=' + encodeURIComponent(brewMethod.name))
+        // ]);
 }
