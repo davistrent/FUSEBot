@@ -62,7 +62,7 @@ bot.dialog('FetchCoffeeRecipe', [
                 session.send(message);
 
                 // End
-                session.endDialog();s
+                session.endDialog();
             });
     }
 ]).triggerAction({
