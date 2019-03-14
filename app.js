@@ -3,7 +3,7 @@ require('dotenv-extended').load();
 
 var builder = require('botbuilder');
 var restify = require('restify');
-var Recipes = require('./recipe');
+var Recipes = require('./recipes');
 var spellService = require('./spell-service');
 
 // Setup Restify Server
